@@ -30,9 +30,6 @@ public:
         else if(p != nullptr && q == nullptr || p == nullptr && q != nullptr){
             sameTree = false;
         }
-        else if(p != nullptr && q == nullptr || p == nullptr && q != nullptr){
-            sameTree = false;
-        }
         else{}
         
         return sameTree;
