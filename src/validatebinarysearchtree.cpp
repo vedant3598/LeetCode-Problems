@@ -1,4 +1,3 @@
-using namespace std;
 /**
  * Definition for a binary tree node.
  * struct TreeNode {
@@ -12,13 +11,6 @@ using namespace std;
  */
 class Solution {
 public:
-    bool isValidBST(TreeNode* root) {
-        if(root->left == nullptr && root->right == nullptr)
-            return true;
-        long long num = 1e18;
-        return isValid(root, -num, num);
-    }
-    
     bool isValid(TreeNode* root, long long low, long long high){    
         if(root == nullptr){
             return true;
@@ -28,5 +20,10 @@ public:
                 return false;
         }
         return isValid(root->left, low, root->val) && isValid(root->right, root->val, high);
+    }
+    
+    bool isValidBST(TreeNode* root) {
+        long long num = 1e18;
+        return isValid(root, -num, num);
     }
 };
