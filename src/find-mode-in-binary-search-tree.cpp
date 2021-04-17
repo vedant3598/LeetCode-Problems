@@ -9,7 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+class Solution1 {
 public:
     map<int, int> findModeUtil(TreeNode* root, map<int, int> dict, int &highestVal){
         if(root == nullptr)
@@ -41,6 +41,32 @@ public:
         for(map<int, int>::iterator it = dict.begin(); it != dict.end(); it++){
             if(it->second == highestVal)
                 ret.push_back(it->first);
+        }
+        return ret;
+    }
+};
+
+class Solution2 {
+public:
+    map<int, int> dict;
+    vector<int> ret;
+    int highestVal = 0;
+    void findModeUtil(TreeNode* root){
+        if(root == nullptr)
+            return;
+        
+        dict[root->val]++;
+        highestVal = max(highestVal, dict[root->val]);
+        findModeUtil(root->left);
+        findModeUtil(root->right);
+    }
+
+    vector<int> findMode(TreeNode* root) {
+        findModeUtil(root);
+        
+        for(auto it : dict){
+            if(it.second == highestVal)
+                ret.push_back(it.first);
         }
         return ret;
     }
