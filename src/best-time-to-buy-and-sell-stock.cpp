@@ -16,3 +16,23 @@ public:
         return max;
     }
 };
+
+class Solution2 {
+public:
+    int maxProfit(vector<int>& prices) {
+        if(prices.size() == 1)
+            return 0;
+        
+        int max = INT_MIN;
+        int minVal = INT_MAX;
+        for(int i = 0; i < prices.size(); i++){
+            if(prices[i] < minVal)
+                minVal = prices[i];
+            if(prices[i] - minVal > max)
+                max = prices[i] - minVal;
+        }
+        if(max < 0)
+            return 0;
+        return max;
+    }
+};
