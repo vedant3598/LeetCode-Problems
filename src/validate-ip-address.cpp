@@ -61,8 +61,9 @@ public:
                         two = true;
                 }
                 if(one && !two){
-                    string::size_type sz;
-                    int num = stoi(ipv4[i],&sz);
+                    long long num;
+                    istringstream ss(ipv4[i]);
+                    ss >> num;
                     if(!(num >= 0 && num <= 255)){
                         ipAddress = "Neither";
                         return ipAddress;
