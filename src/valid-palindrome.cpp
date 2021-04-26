@@ -41,38 +41,38 @@ public:
     }
 };
 
-// Working Solution
 class Solution2 {
 public:
     bool isPalindrome(string s) {        
+        string newS = "";
+        for(int i = 0; i < s.length(); i++){
+            if(isalnum(s[i])){
+                newS += tolower(s[i]);   
+            }
+        }
+        
+        s = newS;
         
         stack<char> characters;
         int counter = 0;
         for(int i = 0; i < s.length(); i++){
-            //cout << s[counter] << endl;
             if(i == ((s.length() - 1) / 2) && ((s.length() - 1) % 2) == 0){
                 counter++;
                 break;
             }
-            else if(i == ((s.length() - 1) / 2)){
-                if(isalnum(s[counter])){
-                    characters.push(s[counter]);
-                    cout << s[counter] << endl;
-                }
+            else if(i == ((s.length() - 1) / 2)){ 
+                characters.push(s[counter]);
                 counter++;
                 break;
             }
             else{
-                if(isalnum(s[counter])){
-                    characters.push(s[counter]);
-                    cout << s[counter] << endl;
-                }
+                characters.push(s[counter]);
                 counter++;
             }
         }
         
         for(; counter < s.length(); counter++){
-            if(isalnum(s[counter] && s[counter] == characters.top()))
+            if(s[counter] == characters.top())
                 characters.pop();
         }
         
