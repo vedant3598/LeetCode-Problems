@@ -1,4 +1,4 @@
-class Solution {
+class Solution1 {
 public:
     bool isPalindrome(string s) {        
         string newS = "";
@@ -31,6 +31,48 @@ public:
         
         for(; counter < newS.length(); counter++){
             if(newS[counter] == characters.top())
+                characters.pop();
+        }
+        
+        if(characters.size() == 0)
+            return true;
+        else
+            return false;
+    }
+};
+
+// Working Solution
+class Solution2 {
+public:
+    bool isPalindrome(string s) {        
+        
+        stack<char> characters;
+        int counter = 0;
+        for(int i = 0; i < s.length(); i++){
+            //cout << s[counter] << endl;
+            if(i == ((s.length() - 1) / 2) && ((s.length() - 1) % 2) == 0){
+                counter++;
+                break;
+            }
+            else if(i == ((s.length() - 1) / 2)){
+                if(isalnum(s[counter])){
+                    characters.push(s[counter]);
+                    cout << s[counter] << endl;
+                }
+                counter++;
+                break;
+            }
+            else{
+                if(isalnum(s[counter])){
+                    characters.push(s[counter]);
+                    cout << s[counter] << endl;
+                }
+                counter++;
+            }
+        }
+        
+        for(; counter < s.length(); counter++){
+            if(isalnum(s[counter] && s[counter] == characters.top()))
                 characters.pop();
         }
         
