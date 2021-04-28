@@ -1,4 +1,4 @@
-class Solution {
+class Solution1 {
 public:
     int maxSubArray(vector<int>& nums) {
         int max = INT_MIN;
@@ -18,5 +18,21 @@ public:
         
         
         return max;
+    }
+};
+
+class Solution2 {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int globalMax = nums[0];
+        int currentMax = nums[0];
+        
+        for(int i = 1; i < nums.size(); i++){
+            currentMax = max(nums[i], currentMax + nums[i]);
+            if(currentMax > globalMax)
+                globalMax = currentMax;
+        }
+        
+        return globalMax;
     }
 };
