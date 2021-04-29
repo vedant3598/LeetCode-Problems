@@ -11,7 +11,7 @@
  */
 class Solution {
 public:  
-    bool isSubtreeUtil(TreeNode* s, TreeNode* t){
+    bool isSubtreeUtil2(TreeNode* s, TreeNode* t){
         if(s == nullptr && t == nullptr)
             return true;
         else if(s != nullptr && t == nullptr)
@@ -20,39 +20,15 @@ public:
             return false;
         else {}
         
-        bool left = false;
-        bool right = false;
-        
-        if(s->val == t->val && ((s->left != nullptr && t->left == nullptr) || (s->right != nullptr && t->right == nullptr))){
-            left = isSubtreeUtil(s->left, t);
-            if(left)
-                return true;
-            right = isSubtreeUtil(s->right, t);
-        }
-        else if(s->val == t->val){
-            if(s->left != nullptr && t->left != nullptr){
-                if(s->left->val == t->left->val)
-                    left = isSubtreeUtil(s->left, t->left);
-            }
-            else
-                left = isSubtreeUtil(s->left, t->left);
-            if(s->right != nullptr && t->right != nullptr){
-                if(s->right->val == t->right->val)
-                    right = isSubtreeUtil(s->right, t->right);
-            }
-            else
-                right = isSubtreeUtil(s->right, t->right);
-        }
-        else{
-            left = isSubtreeUtil(s->left, t);
-            if(left)
-                return true;
-            right = isSubtreeUtil(s->right, t);
-        }
-        return left && right;
+        return (s->val == t->val) && isSubtreeUtil2(s->left, t->left) && isSubtreeUtil2(s->right, t->right);
     }
     
+    bool isSubtreeUtil1(TreeNode* s, TreeNode* t){
+        return s != nullptr && (isSubtreeUtil2(s, t) || isSubtreeUtil1(s->left, t) || isSubtreeUtil1(s->right, t));
+    }
+    
+    
     bool isSubtree(TreeNode* s, TreeNode* t) {
-        return isSubtreeUtil(s, t);
+        return isSubtreeUtil1(s, t);
     }
 };
