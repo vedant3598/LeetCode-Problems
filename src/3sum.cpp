@@ -5,15 +5,16 @@ public:
         map<int, int> m;
         sort(nums.begin(), nums.end());
         int i = 0;
-        while(i < nums.size()){
+
+        if(nums.size() < 2)
+            return ret;
+        
+        while(i < nums.size() - 2){
             while(m.find(nums[i]) != m.end()){
                 i++;
                 if(i == nums.size() - 2)
-                    break;
-            }
-            if(i == nums.size() - 2)
-                break;
-            
+                    return ret;
+            }          
             int num1 = nums[i];
             m[num1] = num1;
             int* num2 = &nums[i + 1];
@@ -29,6 +30,14 @@ public:
                     int* temp1 = num2 + 1;
                     int* temp2 = num3 - 1;
                     
+                    while(*temp1 == *num2 && temp1 < temp2 && temp1 < &nums[nums.size() - 1]){
+                        temp1++;
+                    }
+                    num2 = temp1;
+                    while(*temp2 == *num3 && temp2 > temp1 && temp2 < &nums[0]){
+                        temp2--;
+                    }
+                    num3 = temp2;
                 }
                 else if(num1 + *num2 + *num3 > 0){
                     num3--;
