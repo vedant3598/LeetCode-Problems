@@ -12,7 +12,7 @@ public class SumofTwoIntegers {
                 b = b - 1;
             }
         }
+		
         return num;
-            
     }
 }
