@@ -28,6 +28,7 @@ public:
             }
             
             ListNode* newNode = new ListNode(sum);
+            
             if(result == nullptr)
                 result = newNode;
             else{
