@@ -22,6 +22,7 @@ public:
             
             while(num2 < num3){      
                 vector<int> triplet;
+                
                 if(num1 + *num2 + *num3 == 0){   
                     triplet.push_back(num1);
                     triplet.push_back(*num2);
