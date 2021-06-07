@@ -19,7 +19,6 @@ public:
         }
     }
     
-    
     bool isSymmetric(TreeNode* root) {
         vector<TreeNode*> parent;
         parent.push_back(root);
