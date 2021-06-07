@@ -9,9 +9,28 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+
+class Solution1 {
 public:
+    bool isSymmetricUtil(TreeNode* v1, TreeNode* v2){
+        if(v1 == nullptr && v2 == nullptr)
+            return true;
+        else if(v1 == nullptr || v2 == nullptr)
+            return false;
+        else if(v1->val == v2->val){
+            return true && isSymmetricUtil(v1->left, v2->right) && isSymmetricUtil(v1->right, v2->left);
+        }
+        else
+            return false;
+    }
     
+    bool isSymmetric(TreeNode* root) {
+        return isSymmetricUtil(root->left, root->right);
+    }
+};
+
+class Solution2 {
+public:
     bool isSymmetricUtil(vector<TreeNode*> &parent){
         bool symmetric = true;
         
@@ -58,8 +77,7 @@ public:
         
         return symmetric && isSymmetricUtil(children);
     }
-    
-    
+
     bool isSymmetric(TreeNode* root) {
         vector<TreeNode*> parent;
         parent.push_back(root);
