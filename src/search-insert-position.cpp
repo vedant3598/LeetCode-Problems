@@ -3,8 +3,6 @@ public:
     int index = -1;
     void searchInsertUtil(const vector<int>& nums, const int& target, int l, int r){
         int mid = l + (r-l)/2;
-        cout << l << " " << r << ": " << mid << endl;
-        cout << nums[0] << endl;
         if(l <= r){        
             if(nums[mid] == target)
                 index = mid;
@@ -12,11 +10,17 @@ public:
                 searchInsertUtil(nums, target, l, mid-1);
             else if(nums[mid] < target && target <= nums[r])
                 searchInsertUtil(nums, target, mid+1, r);
-            else{}
-        }
-        else{
-            index = l;
-        }        
+            else{
+                if(target < nums[0])
+                    index = 0;
+                else if(target > nums[nums.size() - 1])
+                    index = nums.size();
+                else if(target > nums[r])
+                    index = r + 1;
+                else if(target < nums[l])
+                    index = l;
+            }
+        }  
         return;
     }
     
