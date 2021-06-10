@@ -17,20 +17,26 @@ public:
         
         int currVal = parents[0]->val;
         if(level % 2 == 0){
-             for(int i = 1; i < parents.size(); i++){
-                 if(currVal % 2 == 0 || parents[i]->val % 2 == 0 || parents[i]->val < currVal){
-                     return false;
-                 }
-                 currVal = parents[i]->val;
+            if(currVal % 2 != 0){
+                for(int i = 1; i < parents.size(); i++){
+                    if(!(currVal % 2 != 0 && parents[i]->val % 2 != 0 && parents[i]->val > currVal))
+                        return false;
+                    currVal = parents[i]->val;
+                 }   
             }
+            else
+                return false;
         }
         if(level % 2 != 0){
-             for(int i = 1; i < parents.size(); i++){
-                 if(currVal % 2 != 0 || parents[i]->val % 2 != 0 || parents[i]->val > currVal){
-                     return false;
-                 }
-                 currVal = parents[i]->val;
+            if(currVal % 2 == 0){
+                for(int i = 1; i < parents.size(); i++){
+                    if(!(currVal % 2 == 0 && parents[i]->val % 2 == 0 && parents[i]->val < currVal))
+                        return false;
+                    currVal = parents[i]->val;
+                }
             }
+            else
+                return false;
         }
         
         vector<TreeNode*> children;
