@@ -13,30 +13,28 @@ class Solution {
 public:
     int longestPath = 0;
     
-    int longestUnivaluePathUtil(TreeNode* root, int currNum, int currPath){
+    int longestUnivaluePathUtil(TreeNode* root){
         if(root == nullptr)
             return 0;
         
-        //cout << root->val << " " << currNum << endl;
-        if(root->val == currNum)
-            currPath++;
-        else{
-            currNum = root->val;
-            currPath = 0;
-        }
-        int path = longestUnivaluePathUtil(root->left, root->val, currPath) + longestUnivaluePathUtil(root->right, root->val, currPath);
-
-        if(path > longestPath)
-            longestPath = path;
+        int left = longestUnivaluePathUtil(root->left);
+        int right = longestUnivaluePathUtil(root->right);
         
-        return currPath;
+        int leftCount = 0;
+        int rightCount = 0;
+        
+        if(root->left != nullptr && root->val == root->left->val)
+            leftCount = left + 1;
+        if(root->right != nullptr && root->val == root->right->val)
+            rightCount = right + 1;
+        
+        longestPath = max(longestPath, leftCount + rightCount);
+        return max(leftCount, rightCount);
+        
     }
     
-    
     int longestUnivaluePath(TreeNode* root) {
-        int currNum = INT_MAX;
-        int currPath = 0;
-        int num = longestUnivaluePathUtil(root, currNum, currPath);
+        int num = longestUnivaluePathUtil(root);
         return longestPath;
     }
 };
