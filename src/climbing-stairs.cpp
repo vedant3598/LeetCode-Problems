@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int climbStairs(int n) {
+    int climbStairs(int n){
         vector<int> memo;
         
         memo.push_back(1);
