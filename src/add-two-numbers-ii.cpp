@@ -10,7 +10,7 @@
  */
 class Solution {
 public:   
-    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
+    ListNode* addTwoNumbers(ListNode* l1, ListNode* l2){
         // Lines 15-26: Converting Linked List into string
         string l1_s = "";
         string l2_s = "";
