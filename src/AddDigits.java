@@ -10,4 +10,3 @@ public class AddDigits {
         return num;
     }
 }
-
