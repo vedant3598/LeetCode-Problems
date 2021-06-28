@@ -30,7 +30,6 @@ public:
         
         longestPath = max(longestPath, leftCount + rightCount);
         return max(leftCount, rightCount);
-        
     }
     
     int longestUnivaluePath(TreeNode* root) {
