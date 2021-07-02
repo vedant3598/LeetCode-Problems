@@ -1,7 +1,7 @@
 import java.util.*;
-public class FindtheDifference {
+public class FindtheDifference{
 	public char findTheDifference(String s, String t) {
-        
+   
         ArrayList<Character> t_al = new ArrayList<Character>();
         char[] c1 = s.toCharArray();
         char[] c2 = t.toCharArray();
