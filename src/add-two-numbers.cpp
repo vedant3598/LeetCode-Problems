@@ -45,7 +45,6 @@ public:
         if(l1 != nullptr){
             while(l1 != nullptr){
                 sum = l1->val;
-            
                 if(carryover)
                     sum += 1;
 
