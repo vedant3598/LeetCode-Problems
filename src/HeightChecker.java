@@ -11,9 +11,8 @@ public class HeightChecker {
         Arrays.sort(array);
         
         for(int i = 0; i < heights.length; i++){
-            if(array[i] != heights[i]){
+            if(array[i] != heights[i])
                 studentsNum++;
-            }
         }
         return studentsNum;
     }
