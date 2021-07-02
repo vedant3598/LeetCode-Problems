@@ -1,5 +1,5 @@
 public class CountPrimes {
-	public int countPrimes(int n) {
+    public int countPrimes(int n) {
         int x = 0;
         for(int i = 2; i < n; i++){
             if(findPrimes(i))
