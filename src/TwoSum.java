@@ -5,7 +5,6 @@ public class TwoSum {
                 if(nums[x] + nums[y] == target){
                     return new int[] {x, y};
                 }
-                
             }
         }
         return new int[] {}; 
