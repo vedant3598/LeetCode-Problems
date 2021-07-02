@@ -8,9 +8,8 @@ class Solution {
         fib[1] = 1;
         
         for(int f = 2; f < fib.length; f++){
-            if(f == N){
+            if(f == N)
                 return fib[f-1] + fib[f-2];
-            }
             fib[f] = fib[f-1] + fib[f-2];
         }
         return fib[N];
