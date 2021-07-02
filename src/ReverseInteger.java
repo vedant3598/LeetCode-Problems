@@ -15,6 +15,5 @@ public class ReverseInteger {
             reverse = reverse + popNum;
         }
         return reverse;
-        
     }
 }
