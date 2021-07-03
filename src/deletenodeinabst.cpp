@@ -12,8 +12,7 @@
 class Solution {
 public:
     TreeNode* inorderSuccessor(TreeNode* root){
-        if(root->left == nullptr){
-        }
+        if(root->left == nullptr){}
         else{
             root = inorderSuccessor(root->left);
         }
