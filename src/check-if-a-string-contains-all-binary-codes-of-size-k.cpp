@@ -10,6 +10,7 @@ public:
             int sum = 0;
             int current = k;
             i = counter;
+
             while(current != 0 && i < s.length()){
                 if(s[i] == '1'){
                     sum += pow(2, current-1);
