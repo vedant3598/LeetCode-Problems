@@ -12,7 +12,6 @@
 class Solution {
 public:
     vector<double> average;
-    
     void averageOfLevelsUtil(vector<TreeNode*> parent){
         if(!parent.size())
             return;
