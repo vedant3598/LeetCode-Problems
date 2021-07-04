@@ -1,4 +1,3 @@
-
 public class StringtoInteger {
 	public int myAtoi(String str) {
         StringBuilder sb = new StringBuilder("");
@@ -42,6 +41,5 @@ public class StringtoInteger {
             else
                 return Integer.MAX_VALUE;
         }
-        
     }
 }
