@@ -15,7 +15,6 @@ class Solution {
                     break;
                 }
             }
-        
         }
         return returnNum;
     }
