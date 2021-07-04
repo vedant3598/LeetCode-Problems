@@ -29,10 +29,8 @@ int num = 0;
                 else 
                     num += 10;
             }
-            
             else if(s.charAt(i) == 'V')
                 num += 5;
-            
             else if(s.charAt(i) == 'I'){
                 if(i == s.length() - 1)
                     num += 1;
