@@ -33,7 +33,6 @@ public:
         }
     }
     
-    
     vector<vector<int>> levelOrder(TreeNode* root) {
         if(root == nullptr){}
         else{
