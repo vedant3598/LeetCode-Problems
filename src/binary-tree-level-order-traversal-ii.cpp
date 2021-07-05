@@ -27,7 +27,6 @@ public:
                 children.push_back(parent[i]->right);
         }
         levelOrderBottomUtil(children);
-        
         nodes.push_back(nums);
         return;
     }
