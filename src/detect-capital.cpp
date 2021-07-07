@@ -2,6 +2,7 @@ class Solution {
 public:
     bool detectCapitalUse(string word) {
         int counter = 0;
+        
         if(isupper(word[counter])){
             counter++;
             if(word.size() == 1)
