@@ -34,6 +34,5 @@ public:
         }      
         
         return buildTreeUtil(preorder, 0, preorder.size() - 1);
-        
     }
 };
