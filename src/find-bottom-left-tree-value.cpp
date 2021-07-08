@@ -33,7 +33,6 @@ public:
         return;
     }
     
-    
     int findBottomLeftValue(TreeNode* root) {
         vector<TreeNode*> parent;
         parent.push_back(root);
