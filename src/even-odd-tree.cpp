@@ -48,7 +48,6 @@ public:
         }
         
         return isEvenOddTreeUtil(children, ++level);
-        
     }
     
     bool isEvenOddTree(TreeNode* root) {
