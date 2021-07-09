@@ -1,6 +1,6 @@
 class Solution {
 public:
-    int maxArea(vector<int>& height) {
+    int maxArea(vector<int>& height){
         int max = 0;
         int current = 0;
         int* p1 = &height[0];
