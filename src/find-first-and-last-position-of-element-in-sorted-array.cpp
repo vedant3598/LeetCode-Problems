@@ -5,7 +5,6 @@ public:
     void searchRangeUtil(const vector<int>& nums, const int &target, int l, int r){
         if(l <= r){
             int mid = l + (r-l)/2;
-            
             if(nums[mid] == target){
                 int start = mid;
                 int end = mid;
