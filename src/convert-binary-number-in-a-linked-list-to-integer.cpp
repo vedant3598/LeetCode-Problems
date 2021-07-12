@@ -16,6 +16,7 @@ public:
         ListNode* temp = head;
         int size = -1;
         
+        
         while(temp != nullptr){
             size++;
             temp = temp->next;
