@@ -24,7 +24,6 @@ public:
                     counter++;
             }
         }
-       
         return counter;
     }
 };
