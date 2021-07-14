@@ -2,7 +2,6 @@ class Solution {
 public:
     int findDuplicate(vector<int>& nums) {
         int duplicate;
-        
         for(int i = 0; i < nums.size(); i++){
             int num = nums[i];
             int index = num - 1;
