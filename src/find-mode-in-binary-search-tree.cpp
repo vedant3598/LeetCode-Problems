@@ -46,6 +46,7 @@ public:
     }
 };
 
+
 class Solution2 {
 public:
     map<int, int> dict;
