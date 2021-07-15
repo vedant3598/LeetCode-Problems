@@ -12,7 +12,6 @@ public:
             if(!counter[i])
                 disappear.push_back(i+1);
         }
-        
         return disappear;
     }
 };
