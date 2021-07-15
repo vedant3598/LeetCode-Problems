@@ -11,6 +11,5 @@ public class PalindromeNumber {
             return true;
             
         else return false;
-        
     }
 }
