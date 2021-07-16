@@ -3,7 +3,7 @@ public:
     bool isHappy(int n) {
         int temp = 0;
         vector<int> numberSeen;
-        
+
         while(n != 1){
             temp = n;
             vector<int> num;
