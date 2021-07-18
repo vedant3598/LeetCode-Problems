@@ -9,7 +9,6 @@ public:
             if(current > highestAltitude)
                 highestAltitude = current;
         }
-        
         return highestAltitude;
     }
 };
