@@ -9,7 +9,6 @@ public:
         for(int i = 1; i < nums.size(); i++){
             memo.push_back(max(memo[i], memo[i-1] + nums[i]));
         }
-        
         return memo[nums.size()];
     }
 };
