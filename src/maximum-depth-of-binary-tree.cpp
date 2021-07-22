@@ -24,7 +24,6 @@ public:
         maxDepthUtil(root->right, curr);
         return;
     }
-    
     int maxDepth(TreeNode* root) {
         int curr = 0;
         maxDepthUtil(root, curr);
