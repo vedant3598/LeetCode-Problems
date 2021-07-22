@@ -31,7 +31,6 @@ public:
         }
         
         vector<string> ipv6;
-        
         stringstream str2(IP);
         token = "";
         while(getline(str2, token, ':')){
