@@ -5,7 +5,6 @@ public:
         int p1 = 0;
         int p2 = 0;
         map<char, int> unique;
-        
         while(p2 < s.length()){
             if(unique.find(s[p2]) == unique.end()){
                 unique[s[p2]] = 0;
