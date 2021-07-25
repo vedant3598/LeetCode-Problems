@@ -15,8 +15,6 @@ public:
                     max = current;
             }
         }
-        
-        
         return max;
     }
 };
