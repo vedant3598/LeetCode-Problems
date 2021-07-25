@@ -19,7 +19,6 @@ public:
             else
                 prefix = temp;
         }
-        
         return prefix;
     }
 };
