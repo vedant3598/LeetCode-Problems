@@ -27,7 +27,6 @@ public:
             return l1;
         else{}
         
-        
         while(l1 != nullptr && l2 != nullptr){
             if(head == nullptr){
                 if(l1->val < l2->val){
