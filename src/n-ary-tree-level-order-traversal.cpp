@@ -39,7 +39,6 @@ public:
         return;  
     }
     
-    
     vector<vector<int>> levelOrder(Node* root) {
         if(root == nullptr)
             return nodes;
