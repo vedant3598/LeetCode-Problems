@@ -24,9 +24,8 @@ public:
                 counter++;
                 break;
             }
-            else{
+            else
                 characters.push(newS[counter++]);
-            }
         }
         
         for(; counter < newS.length(); counter++){
