@@ -21,9 +21,8 @@ public:
 class Solution {
 public:
     vector<int> postOrderUtil(Node* root, vector<int> nodes){
-        if(root == nullptr){
+        if(root == nullptr)
             return nodes;
-        }
         
         for(int i = 0; i < root->children.size(); i++){
             nodes = postOrderUtil(root->children[i], nodes);
