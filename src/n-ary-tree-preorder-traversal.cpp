@@ -21,9 +21,8 @@ public:
 class Solution {
 public:
     vector<int> preOrderUtil(Node* root, vector<int> nodes){
-        if(root == nullptr){
+        if(root == nullptr)
             return nodes;
-        }
         
         nodes.push_back(root->val);
         for(int i = 0; i < root->children.size(); i++){
