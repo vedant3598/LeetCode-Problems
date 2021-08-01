@@ -41,7 +41,6 @@ public:
             first->val = second->val;
             second->val = temp;
         }
-            
         return head;
     }
 };
