@@ -48,7 +48,5 @@ public:
         odd->next = newHeadEven;
 
         return newHeadOdd;
-        
-        
     }
 };
