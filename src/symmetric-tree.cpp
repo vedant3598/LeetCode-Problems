@@ -74,7 +74,6 @@ public:
         }
         else
             return false;
-        
         return symmetric && isSymmetricUtil(children);
     }
 
