@@ -1,7 +1,7 @@
 class Solution {
 public:
     vector<vector<int>> pascal;
-    
+ 
     void generateUtil(vector<int> v, int &numRows) {
         if(numRows == 0)
             return;
