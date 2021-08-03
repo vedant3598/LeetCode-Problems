@@ -5,7 +5,7 @@ public:
     void generateUtil(vector<int> v, int &rowIndex) {
         if(rowIndex == 0)
             return;
-        
+       
         if(v.size() == 1){
             vector<int> second;
             second.push_back(1);
