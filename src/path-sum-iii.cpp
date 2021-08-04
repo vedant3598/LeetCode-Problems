@@ -32,7 +32,6 @@ public:
         vector<int> right = curr;
         pathSumUtil(root->left, targetSum, curr);
         pathSumUtil(root->right, targetSum, right);
-        
         return;
     }
     
