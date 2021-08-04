@@ -32,7 +32,7 @@ public:
         }
         return;
     }
-    
+   
     vector<vector<int>> pathSum(TreeNode* root, int targetSum) {
         int curr = 0;
         vector<int> currNums;
