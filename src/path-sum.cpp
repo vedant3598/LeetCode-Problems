@@ -10,8 +10,7 @@
  * };
  */
 class Solution {
-public:
-        
+public: 
     bool hasPathSumUtil(TreeNode* root, const int &targetSum, int &sum){
         if(root == nullptr)
             return false;
