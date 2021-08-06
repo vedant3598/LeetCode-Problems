@@ -15,6 +15,5 @@ public:
             else
                 counter++;
         }
-
     }
 };
