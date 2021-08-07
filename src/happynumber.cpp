@@ -11,6 +11,7 @@ public:
                 num.push_back(temp % 10);
                 temp /= 10;
             }
+            
             temp = 0;
             for(int i = 0; i < num.size(); i++){
                 int sqr = num[i] * num[i];
