@@ -19,7 +19,6 @@ public:
                 p1++;  
             }
         }
-        
         return unique;
     }
 };
