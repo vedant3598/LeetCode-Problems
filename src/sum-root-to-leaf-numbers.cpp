@@ -20,6 +20,7 @@ public:
             sum += stoi(num);
             return;
         }
+        
         if(root->left != nullptr)
             sumNumbersUtil(root->left, num);
         if(root->right != nullptr)
