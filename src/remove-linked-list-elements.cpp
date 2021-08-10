@@ -13,7 +13,7 @@ public:
     ListNode* removeElements(ListNode* head, int val) {
         ListNode* temp = nullptr;
         ListNode* newHead = temp;
-        
+  
         while(head != nullptr){
             if(head->val != val){
                 if(temp == nullptr){
