@@ -26,7 +26,6 @@ public:
             }
             p1++;
         }
-        
         return counter;
     }
 };
