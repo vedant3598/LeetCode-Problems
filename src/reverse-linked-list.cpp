@@ -20,7 +20,7 @@ public:
             temp = temp->next;
             size++;
         }
-        
+       
         temp = head;
         ListNode* temp2 = nullptr;
         while(size != 0){
