@@ -33,6 +33,5 @@ public:
             previous->next = current->next;
         }
         return head;
-        
     }
 };
