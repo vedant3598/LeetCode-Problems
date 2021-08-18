@@ -21,6 +21,5 @@ public:
                 reverse += ' ';
         }
         return reverse;
-        
     }
 };
