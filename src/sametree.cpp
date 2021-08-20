@@ -31,7 +31,6 @@ public:
             sameTree = false;
         }
         else{}
-        
         return sameTree;
     }
 };
