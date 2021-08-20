@@ -22,7 +22,6 @@ public:
         
         searchBSTUtil(root->left, val);
         searchBSTUtil(root->right, val);
-        
         return;
     }
     
