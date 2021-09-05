@@ -31,7 +31,6 @@ public:
         
     }
     
-    
     int search(vector<int>& nums, int target) {
         int index = -1;
         int min = 0;
