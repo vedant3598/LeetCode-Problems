@@ -46,7 +46,6 @@ public:
             util(root->left, curr);
             util(root->right, curr);
         }
-        
         return;
     }
     
