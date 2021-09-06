@@ -11,7 +11,7 @@ public:
             else
                 product *= -1;
         }
-        
+       
         if(product > 0)
             return 1;
         else if(product < 0)
