@@ -12,7 +12,6 @@
 class Solution {
 public:
     int sum = 0;
-    
     void sumOfLeftLeavesUtil(TreeNode* root){
         if(root == nullptr)
             return;
