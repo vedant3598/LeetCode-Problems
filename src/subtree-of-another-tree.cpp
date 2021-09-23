@@ -27,7 +27,6 @@ public:
         return s != nullptr && (isSubtreeUtil2(s, t) || isSubtreeUtil1(s->left, t) || isSubtreeUtil1(s->right, t));
     }
     
-    
     bool isSubtree(TreeNode* s, TreeNode* t) {
         return isSubtreeUtil1(s, t);
     }
