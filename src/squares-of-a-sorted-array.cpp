@@ -45,7 +45,6 @@ public:
                     p2++;
                 }
             }
-            
             if(p1 >= left){
                 while(p1 >= left){
                     squares.push_back(abs(pow(*p1, 2)));
