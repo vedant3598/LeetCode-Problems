@@ -1,54 +1,42 @@
 class Solution {
 public:
-    vector<vector<int>> threeSum(vector<int>& nums){
+    vector<vector<int>> threeSum(vector<int>& nums) {
         vector<vector<int>> ret;
-        map<int, int> m;
-        sort(nums.begin(), nums.end());
-        int i = 0;
-
-        if(nums.size() < 2)
+        if(nums.size() == 0 || nums.size() == 1)
             return ret;
         
-        while(i < nums.size() - 2){
-            while(m.find(nums[i]) != m.end()){
-                i++;
-                if(i == nums.size() - 2)
-                    return ret;
-            }          
-            int num1 = nums[i];
-            m[num1] = num1;
-            int* num2 = &nums[i + 1];
-            int* num3 = &nums[nums.size() - 1];
-            
-            while(num2 < num3){      
-                vector<int> triplet;
-                
-                if(num1 + *num2 + *num3 == 0){   
-                    triplet.push_back(num1);
-                    triplet.push_back(*num2);
-                    triplet.push_back(*num3);
-                    ret.push_back(triplet);
-                    int* temp1 = num2 + 1;
-                    int* temp2 = num3 - 1;
-                    
-                    while(*temp1 == *num2 && temp1 < temp2 && temp1 < &nums[nums.size() - 1]){
-                        temp1++;
+        sort(nums.begin(), nums.end());
+        for(int i = 0; i < nums.size() - 2; i++){
+            if(i == 0 || (i > 0 && nums[i] != nums[i-1])){
+                int sum = 0 - nums[i];
+                int* p1 = &nums[i+1];
+                int* p2 = &nums[nums.size() - 1];
+                while(p1 < p2){
+                    vector<int> temp;
+                    if(*p1 + *p2 == sum){
+                        temp.push_back(nums[i]);
+                        temp.push_back(*p1);
+                        temp.push_back(*p2);
+                        ret.push_back(temp);
+                        while(p1 < p2 && *p1 == *(p1+1)){
+                            p1++;
+                        }
+                        p1++;
+                        while(p1 < p2 && *p2 == *(p2-1)){
+                            p2--;
+                        }
+                        p2--;
                     }
-                    num2 = temp1;
-                    while(*temp2 == *num3 && temp2 > temp1 && temp2 < &nums[0]){
-                        temp2--;
+                    else if(*p1 + *p2 > sum){
+                        p2--;
                     }
-                    num3 = temp2;
+                    else{
+                        p1++;
+                    }
                 }
-                else if(num1 + *num2 + *num3 > 0){
-                    num3--;
-                }
-                else{
-                    num2++;
-                }
-            }
-            i++;
+            }            
         }
+        
         return ret;
     }
 };
