@@ -9,9 +9,8 @@ public:
     }
     
     void push(int x) {
-        if(s.size() < m){
+        if(s.size() < m)
             s.push_back(x);
-        }
     }
     
     int pop() {
