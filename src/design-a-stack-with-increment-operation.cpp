@@ -1,11 +1,11 @@
 class CustomStack {
 private:
     vector<int> s;
-    in tmaxSize;
+    int m;
 
 public:
     CustomStack(int maxSize) {
-        maxSize = maxSize;
+        m = maxSize;
     }
     
     void push(int x) {
@@ -24,10 +24,9 @@ public:
     }
     
     void increment(int k, int val) {
-        int i = 0; 
-        while(i < k && i < maxSize){
+        int x = s.size();
+        for(int i = 0; i < min(k, x); i++){
             s[i] += val;
-            i++;
         }
     }
 };
