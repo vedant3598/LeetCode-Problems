@@ -1,37 +1,43 @@
 class Solution {
 public:
-    vector<vector<int>> wallsAndGates(vector<vector<int>>& grid){
-        int rows = grid.size();
-        int cols = grid[0].size();
-        deque<pair<int, int>> q;
-        vector<vector<bool>> visited(rows, vector<bool>(cols, 0));
+    /**
+     * @param rooms: m x n 2D grid
+     * @return: nothing
+     */
+    void wallsAndGates(vector<vector<int>> &rooms) {
+        int rows = rooms.size();
+        int cols = rooms[0].size();
+        vector<vector<bool>> visited(rows, vector<int>(cols, false));
+        deque<pair<int, int>> gates;
         for(int r = 0; r < rows; r++){
             for(int c = 0; c < cols; c++){
-                if(grid[r][c] == 0){
-                    q.push_back(make_pair(r, c));
+                if(rooms[r][c] == 0){
+                    gates.push_back(make_pair(r, c));
                     visited[r][c] = true;
                 }
             }
         }
-        
-        vector<vector<int>> directions = {[1, 0], [-1, 0], [0, 1], [0, -1]};
-        while(!q.empty()){
-            int len = q.size();
+
+        int dist = 1;
+        vector<vector<int>> dir = {{1, 0}, {-1, 0}, {0, 1}, {0, 1}};
+        while(!gates.empty()){
+            int len = gates.size();
             for(int i = 0; i < len; i++){
-                pair<int, int> cell = q.front(); q.pop_front();
-                for(int d = 0; d < directions.size(); d++){
-                    int r = cell.first + d[i][0];
-                    int c = cell.second + d[i][1];
-                    if(r >= 0 && r < rows && c >= 0 && c < cols && grid[r][c] != -1 && visited[r][c] == false){
-                        grid[r][c] = grid[cell.first][cell.second] + 1;
+                pair<int, int> cell = gates.front();
+                gates.pop_front();
+                int row = cell.first;
+                int col = cell.second;
+                for(int j = 0; j < dir.size(); j++){
+                    int r = row + dir[j][0];
+                    int c = col + dir[j][1];
+                    if(r >= 0 && r < rows && c >= 0 && c < cols && !visited[r][c] && rooms[r][c] == INT_MAX){
+                        rooms[r][c] = dist;
+                        gates.push_back(make_pair(r, c));
                         visited[r][c] = true;
-                        q.push_back(make_pair(r, c));
                     }
                 }
             }
+            dist++;
         }
-        return grid;
-    }        
-    
-    
-}
+    }
+};
