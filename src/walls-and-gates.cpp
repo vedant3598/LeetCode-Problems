@@ -7,33 +7,35 @@ public:
     void wallsAndGates(vector<vector<int>> &rooms) {
         int rows = rooms.size();
         int cols = rooms[0].size();
-        vector<vector<bool>> visited(rows, vector<int>(cols, false));
-        deque<pair<int, int>> gates;
+        deque<pair<int, int>> q;
+        vector<vector<bool>> visited(rows, vector<bool>(cols, false));
+        vector<vector<int>> dir = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
         for(int r = 0; r < rows; r++){
             for(int c = 0; c < cols; c++){
                 if(rooms[r][c] == 0){
-                    gates.push_back(make_pair(r, c));
+                    visited[r][c] = true;
+                    q.push_back(make_pair(r, c));
+                }
+                if(rooms[r][c] == -1){
                     visited[r][c] = true;
                 }
             }
         }
 
         int dist = 1;
-        vector<vector<int>> dir = {{1, 0}, {-1, 0}, {0, 1}, {0, 1}};
-        while(!gates.empty()){
-            int len = gates.size();
+        while(!q.empty()){
+            int len = q.size();
             for(int i = 0; i < len; i++){
-                pair<int, int> cell = gates.front();
-                gates.pop_front();
-                int row = cell.first;
-                int col = cell.second;
-                for(int j = 0; j < dir.size(); j++){
-                    int r = row + dir[j][0];
-                    int c = col + dir[j][1];
-                    if(r >= 0 && r < rows && c >= 0 && c < cols && !visited[r][c] && rooms[r][c] == INT_MAX){
-                        rooms[r][c] = dist;
-                        gates.push_back(make_pair(r, c));
+                pair<int, int> room = q.front();
+                q.pop_front();
+                for(int j = 0; j < dir; j++){
+                    int r = room.first + dir[j][0];
+                    int c = room.second + dir[j][1];
+                    if(r >= 0 && r < rows && c >= 0 && c < cols && !visited[r][c]){
                         visited[r][c] = true;
+                        rooms[r][c] = dist;
+                        q.push_back(make_pair(r, c));
                     }
                 }
             }
