@@ -1,5 +1,5 @@
 class Solution {
-    string delimiter = "*"
+    string delimiter = "*";
 public:
     /*
      * @param strs: a list of strings
