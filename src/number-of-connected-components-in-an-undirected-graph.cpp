@@ -7,7 +7,7 @@ public:
         
         for(int i = 0; i < adj[node].size(); i++){
             if(visited.find(adj[node][i]) == visited.end()){
-                dfs(adj[node][i], node);
+                dfs(adj[node][i]);
             }
         }
     }
