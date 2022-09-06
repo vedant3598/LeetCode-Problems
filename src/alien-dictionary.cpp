@@ -1,23 +1,23 @@
 class Solution {
 private:
     unordered_map<char, vector<char>> adj;
-    set<char> visited;
+    map<char, bool> visited;
     string sol = "";
 public:
     bool dfs(char c){
         if(visited.find(c) != visited.end()){
-            return false;
+            return visited[c];
         }
 
-        visited.insert(c);
+        visited[c] = true;
         for(int i = 0; i < adj[c].size(); i++){
-            if(!dfs(adj[c][i])){
-                return false;
+            if(dfs(adj[c][i])){
+                return true;
             }
         }
-        visited.erase(c);
+        visited[c] = false;
         sol = c + sol;
-        return true;
+        return false;
     }
 
     /**
@@ -41,7 +41,7 @@ public:
         }
 
         for(auto it = adj.begin(); it != adj.end(); it++){
-            if(!dfs(it->first)){
+            if(dfs(it->first)){
                 return "";
             }
         }
