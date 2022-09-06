@@ -1,7 +1,8 @@
 class Solution {
+private:
     unordered_map<char, vector<char>> adj;
     set<char> visited;
-    string reverse = "";
+    string sol = "";
 public:
     bool dfs(char c){
         if(visited.find(c) != visited.end()){
@@ -15,22 +16,20 @@ public:
             }
         }
         visited.erase(c);
-        reverse.push_back(c);
+        sol = c + sol;
         return true;
     }
 
+    /**
+     * @param words: a list of words
+     * @return: a string which is correct order
+     */
     string alienOrder(vector<string> &words) {
-        for(string word : words){
-            for(int i = 0; i < word.length(); i++){
-                adj[word[i]] = {};
-            }
-        }
-
-        for(int i = 0; i < words.size() - 1; i++){
+        for(int i = 0; i < words.size()-1; i++){
             string w1 = words[i];
             string w2 = words[i+1];
             int minLen = min(w1.length(), w2.length());
-            if(w1.length() > w2.length && w1.substr(0, minLen) == w2.substr(0, minLen)){
+            if(w1.length() > w2.length() && w1.substr(0, minLen) == w2.substr(0, minLen)){
                 return "";
             }
             for(int j = 0; j < minLen; j++){
@@ -39,17 +38,12 @@ public:
                     break;
                 }
             }
-        } 
+        }
 
-        for(unordered_map<char, vector<char>>::iterator it = adj.begin(); it != adj.end(); it++){
+        for(auto it = adj.begin(); it != adj.end(); it++){
             if(!dfs(it->first)){
                 return "";
             }
-        }   
-
-        string sol = "";
-        for(int i = reverse.length() - 1; i != -1; i--){
-            sol += reverse[i];
         }
         return sol;
     }
