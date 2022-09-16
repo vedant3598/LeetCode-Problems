@@ -19,11 +19,11 @@ public:
         int sol = words.size();
         while(i1 < w1.size() && i2 < w2.size()){
             sol = min(sol, abs(w2[i2]-w1[i1]));
-            if(i2 > i1){
-                i1++;
+            if(w1[i] < w2[j]){
+                i++;
             }
             else{
-                i2++;
+                j++;
             }
         }
         return sol;
