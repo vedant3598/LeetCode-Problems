@@ -1,8 +1,23 @@
 class MaxStack {
     stack<int> s;
+    int m;
+
+    void getNewMax(){
+        m = INT_MIN;
+        vector<int> temp;
+        while(s.size()){
+            m = max(m, s.top());
+            temp.push_back(s.top());
+            s.pop();
+        }
+
+        for(int i = temp.size() - 1; i != -1; i--){
+            s.push(temp[i]);
+        }
+    }
 public:
     MaxStack() {
-        // do intialization if necessary
+        m = INT_MIN;
     }
 
     /*
@@ -11,6 +26,7 @@ public:
      */
     void push(int number) {
         s.push(number);
+        m = max(m, number);
     }
 
     /*
@@ -19,6 +35,9 @@ public:
     int pop() {
         int sol = s.top();
         s.pop();
+        if(sol == m){
+            getNewMax();
+        }
         return sol;
     }
 
@@ -33,45 +52,29 @@ public:
      * @return: An integer
      */
     int peekMax() {
-        vector<int> temp;
-        int sol = INT_MIN;
-        while(s.size()){
-            temp.push_back(s.top());
-            sol = max(sol, s.top());
-            s.pop();
-        }
-
-        for(int i = temp.size() - 1; i != -1; i--){
-            s.push(temp[i]);
-        }
-        return sol;
+        return m;
     }
     
     /*
      * @return: An integer
      */
     int popMax() {
+        int sol = m;
+
         vector<int> temp;
-        int sol = INT_MIN;
         while(s.size()){
+            if(s.top() == sol){
+                s.pop();
+                break;
+            }
             temp.push_back(s.top());
-            sol = max(sol, s.top());
             s.pop();
         }
 
         for(int i = temp.size() - 1; i != -1; i--){
             s.push(temp[i]);
         }
-
-        temp.clear();
-        while(s.top() != sol){
-            temp.push_back(s.top());
-            s.pop();
-        }
-        s.pop();
-        for(int i = temp.size() - 1; i != -1; i--){
-            s.push(temp[i]);
-        }
+        getNewMax();
         return sol;
     }
 };
